@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RDV Confirmé · Agence de l'Ombre</title>
+<link rel="icon" type="image/svg+xml" href="../Agence%20de%20l'ombre%20logo%20d%202.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','810327792040286');
+fbq('track','PageView');
+fbq('track','Schedule');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=810327792040286&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+<style>
+:root {
+  --orange:    #EF7F15;
+  --orange-dk: #D4700D;
+  --orange-lt: #F59530;
+  --dark:      #0D0D0D;
+  --dark2:     #161616;
+  --white:     #ffffff;
+  --surface:   #F6F6F4;
+  --card:      #ffffff;
+  --border:    #E8E8E6;
+  --text:      #0F0F0F;
+  --muted:     #6B6B6B;
+  --green:     #16A34A;
+  --r:         18px;
+  --r-sm:      10px;
+  --sh:        0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.07);
+  --sh-lg:     0 8px 32px rgba(0,0,0,0.12);
+  --wrap:      1240px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; overflow-x:clip; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--surface);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display:block; max-width:100%; }
+
+.wrap { max-width:var(--wrap); margin:0 auto; padding:0 2rem; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(239,127,21,.45); }
+  60%      { box-shadow: 0 0 0 16px rgba(239,127,21,0); }
+}
+
+/* NAV */
+nav {
+  background: rgba(13,13,13,.97);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-inner {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-text {
+  font-size: 17px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.3px;
+}
+
+/* HERO */
+.hero {
+  background: var(--dark);
+  padding: 4rem 2rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background: radial-gradient(ellipse 900px 500px at 50% 0%, rgba(239,127,21,.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22,163,74,.15);
+  border: 1px solid rgba(22,163,74,.3);
+  color: #4ade80;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp .6s ease both;
+}
+.hero-badge svg { width:14px; height:14px; }
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 1rem;
+  animation: fadeUp .6s .1s ease both;
+}
+.hero-title span { color: var(--orange); }
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,.55);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.65;
+  animation: fadeUp .6s .2s ease both;
+}
+
+/* VIDEO */
+.video-wrap {
+  max-width: 740px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,.5);
+  animation: fadeUp .7s .3s ease both;
+  position: relative;
+  z-index: 1;
+}
+.wistia_embed {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* STEPS */
+.steps-section {
+  padding: 5rem 2rem;
+  background: var(--surface);
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: .75rem;
+  text-align: center;
+}
+.section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  margin-bottom: 3rem;
+}
+.steps-grid {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.step-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  box-shadow: var(--sh);
+  transition: transform .2s, box-shadow .2s;
+}
+.step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sh-lg);
+}
+.step-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+}
+.step-body { flex: 1; min-width: 0; }
+.step-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: .35rem;
+}
+.step-desc {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.step-warning {
+  background: #FFF7ED;
+  border: 1.5px solid #FED7AA;
+  border-left: 4px solid var(--orange);
+  border-radius: var(--r-sm);
+  padding: 1rem 1.25rem;
+  font-size: 14px;
+  color: #92400E;
+  line-height: 1.6;
+  max-width: 860px;
+  margin: 1.25rem auto 0;
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+}
+.step-warning svg { flex-shrink:0; margin-top:2px; color:#D97706; }
+
+/* RÉALISATIONS */
+.reals-section {
+  padding: 5rem 2rem;
+  background: var(--dark);
+}
+.reals-section .section-title { color: #fff; }
+.reals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.real-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+  text-decoration: none;
+  display: block;
+}
+.real-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+  box-shadow: 0 16px 48px rgba(239,127,21,.15);
+}
+.real-preview {
+  background: #1a1a2e;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: rgba(255,255,255,.08);
+  letter-spacing: -1px;
+  position: relative;
+  overflow: hidden;
+}
+.real-preview-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.real-preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,.4));
+}
+.real-info {
+  padding: 1rem 1.25rem;
+}
+.real-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: .25rem;
+}
+.real-meta {
+  font-size: 12px;
+  color: rgba(255,255,255,.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.real-meta svg { width:12px; height:12px; }
+.real-link-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: .6rem;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+}
+
+/* AVIS CLIENTS */
+.avis-section {
+  padding: 5rem 2rem;
+  background: var(--surface);
+}
+
+/* Big testimonials (logo style) */
+.big-temo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: var(--wrap);
+  margin: 0 auto 4rem;
+}
+.big-temo-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--sh);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.big-temo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-lg);
+}
+.big-temo-logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.big-temo-logo img {
+  max-height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+.big-temo-stars { color:#FBBF24; font-size:17px; letter-spacing:2px; }
+.big-temo-text {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.8;
+  flex: 1;
+}
+.big-temo-text strong { color: var(--text); }
+
+/* Google reviews */
+.google-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: var(--wrap);
+  margin: 0 auto;
+}
+.google-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.5rem;
+  box-shadow: var(--sh);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.google-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sh-lg);
+}
+.google-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.google-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6B7280, #374151);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.google-avatar.orange { background: linear-gradient(135deg, var(--orange), var(--orange-dk)); }
+.google-avatar.purple { background: linear-gradient(135deg, #7C3AED, #5B21B6); }
+.google-avatar.green  { background: linear-gradient(135deg, #059669, #047857); }
+.google-author-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.google-author-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.google-stars { color:#FBBF24; font-size:14px; letter-spacing:1px; }
+.google-date  { font-size:11px; color:var(--muted); font-weight:500; }
+.google-row   { display:flex; align-items:center; gap:8px; }
+.google-text  {
+  font-size: 13.5px;
+  color: #374151;
+  line-height: 1.75;
+  flex: 1;
+}
+.google-badge-new {
+  display: inline-block;
+  background: #EFF6FF;
+  color: #1D4ED8;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: .3px;
+}
+.google-logo {
+  margin-left: auto;
+  opacity: .5;
+  flex-shrink: 0;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark2);
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  margin-bottom: 2rem;
+}
+.footer-brand-name { font-size:16px; font-weight:900; color:#fff; margin-bottom:.4rem; }
+.footer-brand-tag  { font-size:11.5px; font-weight:700; color:var(--orange); margin-bottom:1rem; letter-spacing:.3px; }
+.footer-brand-desc { font-size:13px; color:rgba(255,255,255,.35); line-height:1.7; }
+.footer-socials { display:flex; gap:10px; margin-top:1rem; }
+.footer-social-link {
+  width:34px; height:34px;
+  border-radius:50%;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,.5);
+  transition:background .2s, color .2s, border-color .2s;
+  text-decoration:none;
+}
+.footer-social-link:hover { background:var(--orange); color:#fff; border-color:var(--orange); }
+.footer-col-title  { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,.4); margin-bottom:.75rem; }
+.footer-link {
+  display:block;
+  font-size:13px;
+  color:rgba(255,255,255,.5);
+  margin-bottom:.45rem;
+  text-decoration:none;
+  transition:color .15s;
+}
+.footer-link:hover { color:var(--orange); }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.footer-copy { font-size:12px; color:rgba(255,255,255,.25); }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity:0; transform:translateY(28px);
+  transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
+.d4{transition-delay:.32s;} .d5{transition-delay:.4s;}
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .big-temo-grid { grid-template-columns:1fr; }
+  .google-grid { grid-template-columns: repeat(2, 1fr); }
+  .reals-grid  { grid-template-columns: 1fr; max-width:420px; }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:2rem; }
+  .footer-grid > *:first-child { grid-column:1/-1; }
+}
+@media(max-width:640px) {
+  .hero { padding:3rem 1.5rem 2.5rem; }
+  .steps-section, .reals-section, .avis-section { padding:3.5rem 1.5rem; }
+  .google-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; gap:1.75rem; }
+  .footer-bottom { flex-direction:column; text-align:center; }
+  .step-card { flex-direction:column; gap:.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg height="36" viewBox="0 0 346 245" xmlns="http://www.w3.org/2000/svg" style="width:auto;fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <g transform="matrix(1,0,0,1,-1154.8,-2551.12)">
+          <g transform="matrix(3.67871,0,0,3.66051,-8358.66,-347.046)"><path d="M2649.63,796.531C2666.39,796.531 2679.99,810.139 2679.99,826.896C2679.99,843.653 2666.39,857.261 2649.63,857.261C2632.87,857.261 2619.27,843.653 2619.27,826.896C2619.27,810.139 2632.87,796.531 2649.63,796.531ZM2649.63,799.232C2634.36,799.232 2621.96,811.626 2621.96,826.896C2621.96,842.167 2634.36,854.561 2649.63,854.561C2664.9,854.561 2677.3,842.167 2677.3,826.896C2677.3,811.626 2664.9,799.232 2649.63,799.232Z" style="fill:rgb(239,127,21);"/></g>
+          <g transform="matrix(3.99059,0,0,4.0488,-9298.48,-674.59)"><path d="M2667.29,851.358C2662.33,854.96 2656.22,857.086 2649.63,857.086C2632.98,857.086 2619.49,843.545 2619.49,826.896C2619.49,810.248 2632.98,796.707 2649.63,796.707C2657.28,796.707 2664.27,799.568 2669.58,804.276C2669.88,804.536 2669.64,803.878 2669.58,804.276C2669.53,804.673 2668.1,804.542 2666.77,804.943C2658.04,807.571 2650.67,818.577 2650.67,828.351C2650.67,837.264 2659.55,848.159 2667.29,851.358C2667.65,851.507 2667.76,849.945 2667.77,850.346C2667.79,850.747 2667.61,851.128 2667.29,851.358ZM2664.55,850.412C2657.66,845.558 2650.67,837.466 2650.67,828.351C2650.67,818.292 2658.64,809.54 2666.77,804.943C2662.04,801.253 2656.09,799.056 2649.63,799.056C2634.25,799.056 2621.74,811.518 2621.74,826.896C2621.74,842.275 2634.25,854.737 2649.63,854.737C2655.12,854.737 2660.24,853.151 2664.55,850.412Z" style="fill:rgb(255,255,255);"/></g>
+          <g transform="matrix(0.797708,0,0,1,-821.671,547.548)"><path d="M2890.06,2075.96C2894.95,2084.25 2898.79,2093.22 2901.4,2102.7L2901.4,2161.56C2898.79,2171.04 2894.95,2180.01 2890.06,2188.3L2890.06,2075.96Z" style="fill:rgb(239,127,21);"/></g>
+          <g transform="matrix(0.68357,0,0,1,-502.577,546.811)"><path d="M2858.68,2041.76C2865.26,2046.45 2871.3,2051.83 2876.7,2057.8L2876.7,2206.46C2871.3,2212.43 2865.26,2217.81 2858.68,2222.5L2858.68,2041.76Z" style="fill:rgb(239,127,21);"/></g>
+          <g transform="matrix(1,0,0,1,-1405.13,547.69)"><path d="M2802.38,2242.95C2799.51,2243.17 2796.61,2243.28 2793.69,2243.28C2732.04,2243.28 2682.01,2193.47 2682.01,2132.13C2682.01,2070.79 2732.04,2020.98 2793.69,2020.98C2796.61,2020.98 2799.51,2021.09 2802.38,2021.31L2802.38,2242.95ZM2749.91,2040.69C2715.61,2056.99 2691.89,2091.82 2691.89,2132.13C2691.89,2168.72 2711.44,2200.81 2740.71,2218.6C2769.8,2197.33 2788.64,2164.12 2788.89,2126.72C2789.12,2092.88 2774.1,2062.26 2749.91,2040.69Z" style="fill:rgb(239,127,21);"/></g>
+          <g transform="matrix(0.71114,0,0,0.985832,-589.871,578.646)"><path d="M2822.1,2024.61C2829.13,2026.45 2835.9,2028.96 2842.32,2032.06L2842.32,2232.2C2835.9,2235.3 2829.13,2237.81 2822.1,2239.65L2822.1,2024.61Z" style="fill:rgb(239,127,21);"/></g>
+        </g>
+      </svg>
+      <span class="nav-logo-text">Agence de l'Ombre</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    Ton RDV est confirmé
+  </div>
+  <h1 class="hero-title">Bravo, tu as passé<br><span>le premier pas.</span></h1>
+  <p class="hero-sub">Regarde cette courte vidéo, elle est importante&nbsp;— elle te dit exactement comment préparer notre échange pour qu'il soit utile dès la première minute.</p>
+
+  <div class="video-wrap">
+    <div class="wistia_embed wistia_async_cmg5s04a8f" style="aspect-ratio:16/9;width:100%;"></div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps-section">
+  <div class="wrap">
+    <p class="section-label">Avant notre appel</p>
+    <h2 class="section-title">Ce qu'il te reste à faire</h2>
+    <div class="steps-grid">
+
+      <div class="step-card reveal d1">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Vérifie ta confirmation par e-mail</div>
+          <div class="step-desc">Tu as reçu un e-mail confirmant la date, l'heure et le lien Google Meet de notre RDV. Assure-toi d'y avoir accès (pense à regarder dans tes courriers indésirables).</div>
+        </div>
+      </div>
+
+      <div class="step-card reveal d2">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Connecte-toi sur Google Meet</div>
+          <div class="step-desc">Connecte-toi sur Google Meet quelques minutes avant notre échange pour t'assurer que tout fonctionne.</div>
+        </div>
+      </div>
+
+      <div class="step-card reveal d3">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Utilise un ordinateur</div>
+          <div class="step-desc">Utilise un ordinateur afin d'optimiser la qualité de notre appel — le partage d'écran est souvent utile.</div>
+        </div>
+      </div>
+
+      <div class="step-card reveal d4">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Choisis un endroit calme</div>
+          <div class="step-desc">Veille à être dans un endroit calme (pas en voiture, ni dans une salle d'attente, etc.) et prévois environ 1 heure.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="step-warning reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span><strong>Si tu arrives avec plus de 5 minutes de retard, le RDV sera annulé.</strong> Merci de ta ponctualité&nbsp;!</span>
+    </div>
+  </div>
+</section>
+
+<!-- RÉALISATIONS -->
+<section class="reals-section">
+  <div class="wrap">
+    <p class="section-label" style="color:rgba(255,255,255,.4)">Exemples de réalisations</p>
+    <h2 class="section-title">Ce qu'on peut construire ensemble</h2>
+    <div class="reals-grid">
+
+      <a href="https://goncalves-freres-etancheite.fr/" target="_blank" rel="noopener" class="real-card reveal d1">
+        <div class="real-preview">
+          <img src="https://api.microlink.io/?url=https://goncalves-freres-etancheite.fr&screenshot=true&meta=false&embed=screenshot.url" alt="Goncalves Frères Étanchéité" class="real-preview-img" onerror="this.style.display='none'">
+          <div class="real-preview-overlay"></div>
+          <span style="position:relative;z-index:1;font-size:13px;font-weight:700;color:rgba(255,255,255,.25)">goncalves-freres</span>
+        </div>
+        <div class="real-info">
+          <div class="real-name">Goncalves Frères Étanchéité</div>
+          <div class="real-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Étanchéité · BTP
+          </div>
+          <div class="real-link-tag">
+            Voir le site
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://www.christophe-serrurier-ain.fr/" target="_blank" rel="noopener" class="real-card reveal d2">
+        <div class="real-preview">
+          <img src="https://api.microlink.io/?url=https://christophe-serrurier-ain.fr&screenshot=true&meta=false&embed=screenshot.url" alt="Christophe Serrurier Ain" class="real-preview-img" onerror="this.style.display='none'">
+          <div class="real-preview-overlay"></div>
+          <span style="position:relative;z-index:1;font-size:13px;font-weight:700;color:rgba(255,255,255,.25)">christophe-serrurier</span>
+        </div>
+        <div class="real-info">
+          <div class="real-name">Christophe Serrurier Ain</div>
+          <div class="real-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Serrurerie · BTP
+          </div>
+          <div class="real-link-tag">
+            Voir le site
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://adconceptdesign.fr/" target="_blank" rel="noopener" class="real-card reveal d3">
+        <div class="real-preview">
+          <img src="https://api.microlink.io/?url=https://adconceptdesign.fr&screenshot=true&meta=false&embed=screenshot.url" alt="AD Concept Design" class="real-preview-img" onerror="this.style.display='none'">
+          <div class="real-preview-overlay"></div>
+          <span style="position:relative;z-index:1;font-size:13px;font-weight:700;color:rgba(255,255,255,.25)">adconceptdesign</span>
+        </div>
+        <div class="real-info">
+          <div class="real-name">AD Concept Design</div>
+          <div class="real-meta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Design · BTP
+          </div>
+          <div class="real-link-tag">
+            Voir le site
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section class="avis-section">
+  <div class="wrap">
+    <p class="section-label">Ils nous font confiance</p>
+    <h2 class="section-title">Ce que disent nos clients</h2>
+
+    <!-- Big testimonials -->
+    <div class="big-temo-grid">
+
+      <div class="big-temo-card reveal d1">
+        <div class="big-temo-logo">
+          <svg width="120" height="48" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="40" r="26" fill="none" stroke="#2B7BBD" stroke-width="3"/>
+            <path d="M28 16 C28 16, 14 22, 14 40 C14 58, 28 64, 28 64 C28 64, 20 55, 20 40 C20 25, 28 16, 28 16Z" fill="#2B7BBD"/>
+            <path d="M28 16 C28 16, 42 22, 42 40 C42 58, 28 64, 28 64 C28 64, 36 55, 36 40 C36 25, 28 16, 28 16Z" fill="none" stroke="#2B7BBD" stroke-width="2"/>
+            <text x="62" y="47" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="26" fill="#2B7BBD">GFE</text>
+          </svg>
+        </div>
+        <div class="big-temo-stars">★★★★★</div>
+        <div class="big-temo-text">
+          "Notre savoir-faire était reconnu localement, mais pas du tout en ligne, <strong>l'agence a structuré et modernisé</strong> nos réseaux, notre image et <strong>mis en valeur</strong> nos réalisations sans nous faire perdre de temps.<br><br>
+          Aujourd'hui, notre <strong>communication</strong> est <strong>professionnelle</strong>, <strong>régulière</strong> et <strong>fidèle</strong> à la qualité de notre travail.<br><br>
+          On inspire <strong>plus de confiance</strong>, aussi bien <strong>auprès des clients</strong> que <strong>des partenaires</strong>."
+        </div>
+      </div>
+
+      <div class="big-temo-card reveal d2">
+        <div class="big-temo-logo">
+          <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="6" fill="#7DC242"/>
+            <circle cx="32" cy="32" r="22" fill="none" stroke="white" stroke-width="2.5"/>
+            <polygon points="32,16 44,28 32,28 20,28" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="26" y="28" width="12" height="14" fill="none" stroke="white" stroke-width="2"/>
+            <line x1="18" y1="28" x2="46" y2="28" stroke="white" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="big-temo-stars">★★★★★</div>
+        <div class="big-temo-text">
+          "Je ne connaissais rien aux réseaux et je n'avais clairement pas le temps de m'en occuper.<br><br>
+          <strong>L'agence de l'ombre a tout pris en charge</strong> et m'a structuré une <strong>communication professionnelle</strong> à partir de mes chantiers, <strong>adaptée à mon image</strong>.<br><br>
+          Aujourd'hui, on me reconnaît davantage, j'ai beaucoup <strong>plus de demandes</strong> et de <strong>clients</strong>. C'est simple, fluide, et je vois concrètement <strong>l'impact</strong> sur mon <strong>chiffre d'affaires</strong>."
+        </div>
+      </div>
+
+      <div class="big-temo-card reveal d3">
+        <div class="big-temo-logo">
+          <svg width="140" height="48" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="8" width="76" height="64" rx="4" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+            <polygon points="8,40 40,16 72,40" fill="#1a1a1a"/>
+            <rect x="16" y="40" width="16" height="26" fill="#1a1a1a"/>
+            <rect x="44" y="40" width="16" height="26" fill="#1a1a1a"/>
+            <text x="90" y="38" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="18" fill="#1a1a1a">RM</text>
+            <text x="90" y="58" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="13" fill="#C4920A">COUVERTURE</text>
+          </svg>
+        </div>
+        <div class="big-temo-stars">★★★★★</div>
+        <div class="big-temo-text">
+          "Avant, nos réseaux n'existaient pas vraiment et n'apportaient aucun client. Aujourd'hui, <strong>l'agence met en valeur nos chantiers</strong>, notre sérieux et notre façon de travailler.<br><br>
+          La <strong>communication</strong> est régulière et <strong>pro</strong>, ce qui nous rend <strong>plus visibles</strong> et surtout <strong>plus crédibles</strong>.<br><br>
+          <strong>Résultat</strong>&nbsp;: plus de <strong>demandes de devis</strong> et des <strong>futurs clients</strong> qui arrivent déjà en <strong>confiance</strong>. C'est devenu un <strong>vrai levier</strong> pour <strong>développer notre activité</strong>."
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Google reviews -->
+    <div class="google-grid">
+
+      <div class="google-card reveal d1">
+        <div class="google-header">
+          <div class="google-avatar orange">M</div>
+          <div>
+            <div class="google-author-name">Morgane Sulpice</div>
+            <div class="google-author-meta">4 avis</div>
+          </div>
+          <svg class="google-logo" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+        <div class="google-row">
+          <span class="google-stars">★★★★★</span>
+          <span class="google-date">il y a un mois</span>
+        </div>
+        <div class="google-text">Très très bonne expérience.<br><br>Équipe réactive, efficace et vraiment pro. Site internet, référencement et réseaux bien gérés, on voit de suite la différence&nbsp;!<br><br>Merci à vous. Je recommande vivement aux artisans qui veulent plus de visibilité.</div>
+      </div>
+
+      <div class="google-card reveal d2">
+        <div class="google-header">
+          <div class="google-avatar green">C</div>
+          <div>
+            <div class="google-author-name">Chrsitine Themelidis</div>
+            <div class="google-author-meta">8 avis</div>
+          </div>
+          <svg class="google-logo" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+        <div class="google-row">
+          <span class="google-stars">★★★★★</span>
+          <span class="google-date">il y a 5 jours</span>
+          <span class="google-badge-new">NOUVEAU</span>
+        </div>
+        <div class="google-text">Equipe tres dynamique, moderne dans son approche et a l'écoute. Elles sont professionnelles, attentives et efficaces. Je les recommande vivement.</div>
+      </div>
+
+      <div class="google-card reveal d3">
+        <div class="google-header">
+          <div class="google-avatar" style="background:linear-gradient(135deg,#B45309,#92400E);">C</div>
+          <div>
+            <div class="google-author-name">Christophe Lablee</div>
+            <div class="google-author-meta">Local Guide · 14 avis · 7 photos</div>
+          </div>
+          <svg class="google-logo" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+        <div class="google-row">
+          <span class="google-stars">★★★★★</span>
+          <span class="google-date">il y a 5 jours</span>
+          <span class="google-badge-new">NOUVEAU</span>
+        </div>
+        <div class="google-text">J'ai été très déçu avant d'avoir eu a faire a cette agence les filles sont pro compétentes. Je les recommandes vivement.</div>
+      </div>
+
+      <div class="google-card reveal d4">
+        <div class="google-header">
+          <div class="google-avatar" style="background:linear-gradient(135deg,#2563EB,#1D4ED8);">F</div>
+          <div>
+            <div class="google-author-name">Full Park</div>
+            <div class="google-author-meta">1 avis</div>
+          </div>
+          <svg class="google-logo" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+        <div class="google-row">
+          <span class="google-stars">★★★★★</span>
+          <span class="google-date">il y a un mois</span>
+        </div>
+        <div class="google-text">Super expérience avec l'Agence de l'Ombre&nbsp;! L'équipe m'a fourni un site web pro qui répondait à mes attentes et reflétait mon travail en quelques semaines. Équipe experte et support nickel. Je vous les recommande vivement&nbsp;! Merci à vous pour votre travail.</div>
+      </div>
+
+      <div class="google-card reveal d5">
+        <div class="google-header">
+          <div class="google-avatar purple">M</div>
+          <div>
+            <div class="google-author-name">Moses</div>
+            <div class="google-author-meta">1 avis</div>
+          </div>
+          <svg class="google-logo" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </div>
+        <div class="google-row">
+          <span class="google-stars">★★★★★</span>
+          <span class="google-date">il y a un mois</span>
+        </div>
+        <div class="google-text">Très content du professionnalisme de l'équipe jeune et dynamique… je vous le recommande.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <svg height="52" viewBox="0 0 346 245" xmlns="http://www.w3.org/2000/svg" style="width:auto;display:block;margin-bottom:.75rem;fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+          <g transform="matrix(1,0,0,1,-1154.8,-2551.12)">
+            <g transform="matrix(3.67871,0,0,3.66051,-8358.66,-347.046)"><path d="M2649.63,796.531C2666.39,796.531 2679.99,810.139 2679.99,826.896C2679.99,843.653 2666.39,857.261 2649.63,857.261C2632.87,857.261 2619.27,843.653 2619.27,826.896C2619.27,810.139 2632.87,796.531 2649.63,796.531ZM2649.63,799.232C2634.36,799.232 2621.96,811.626 2621.96,826.896C2621.96,842.167 2634.36,854.561 2649.63,854.561C2664.9,854.561 2677.3,842.167 2677.3,826.896C2677.3,811.626 2664.9,799.232 2649.63,799.232Z" style="fill:rgb(239,127,21);"/></g>
+            <g transform="matrix(3.99059,0,0,4.0488,-9298.48,-674.59)"><path d="M2667.29,851.358C2662.33,854.96 2656.22,857.086 2649.63,857.086C2632.98,857.086 2619.49,843.545 2619.49,826.896C2619.49,810.248 2632.98,796.707 2649.63,796.707C2657.28,796.707 2664.27,799.568 2669.58,804.276C2669.88,804.536 2669.64,803.878 2669.58,804.276C2669.53,804.673 2668.1,804.542 2666.77,804.943C2658.04,807.571 2650.67,818.577 2650.67,828.351C2650.67,837.264 2659.55,848.159 2667.29,851.358C2667.65,851.507 2667.76,849.945 2667.77,850.346C2667.79,850.747 2667.61,851.128 2667.29,851.358ZM2664.55,850.412C2657.66,845.558 2650.67,837.466 2650.67,828.351C2650.67,818.292 2658.64,809.54 2666.77,804.943C2662.04,801.253 2656.09,799.056 2649.63,799.056C2634.25,799.056 2621.74,811.518 2621.74,826.896C2621.74,842.275 2634.25,854.737 2649.63,854.737C2655.12,854.737 2660.24,853.151 2664.55,850.412Z" style="fill:rgb(255,255,255);"/></g>
+            <g transform="matrix(0.797708,0,0,1,-821.671,547.548)"><path d="M2890.06,2075.96C2894.95,2084.25 2898.79,2093.22 2901.4,2102.7L2901.4,2161.56C2898.79,2171.04 2894.95,2180.01 2890.06,2188.3L2890.06,2075.96Z" style="fill:rgb(239,127,21);"/></g>
+            <g transform="matrix(0.68357,0,0,1,-502.577,546.811)"><path d="M2858.68,2041.76C2865.26,2046.45 2871.3,2051.83 2876.7,2057.8L2876.7,2206.46C2871.3,2212.43 2865.26,2217.81 2858.68,2222.5L2858.68,2041.76Z" style="fill:rgb(239,127,21);"/></g>
+            <g transform="matrix(1,0,0,1,-1405.13,547.69)"><path d="M2802.38,2242.95C2799.51,2243.17 2796.61,2243.28 2793.69,2243.28C2732.04,2243.28 2682.01,2193.47 2682.01,2132.13C2682.01,2070.79 2732.04,2020.98 2793.69,2020.98C2796.61,2020.98 2799.51,2021.09 2802.38,2021.31L2802.38,2242.95ZM2749.91,2040.69C2715.61,2056.99 2691.89,2091.82 2691.89,2132.13C2691.89,2168.72 2711.44,2200.81 2740.71,2218.6C2769.8,2197.33 2788.64,2164.12 2788.89,2126.72C2789.12,2092.88 2774.1,2062.26 2749.91,2040.69Z" style="fill:rgb(239,127,21);"/></g>
+            <g transform="matrix(0.71114,0,0,0.985832,-589.871,578.646)"><path d="M2822.1,2024.61C2829.13,2026.45 2835.9,2028.96 2842.32,2032.06L2842.32,2232.2C2835.9,2235.3 2829.13,2237.81 2822.1,2239.65L2822.1,2024.61Z" style="fill:rgb(239,127,21);"/></g>
+          </g>
+        </svg>
+        <div class="footer-brand-name">Agence de l'Ombre</div>
+        <div class="footer-brand-tag">100% Féminine · Spécialisée BTP · France entière</div>
+        <div class="footer-brand-desc">On est une agence 100% féminine spécialisée dans les entreprises du BTP. On structure ta visibilité locale : fiche Google, site internet, référencement, publicités.</div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/agence.de.lombre/" target="_blank" class="footer-social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100092256871177" target="_blank" class="footer-social-link" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/agence-de-lombre/" target="_blank" class="footer-social-link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <span class="footer-link">hello@agencedelombre.fr</span>
+      </div>
+      <div>
+        <div class="footer-col-title">Nos services</div>
+        <span class="footer-link">Fiche Google</span>
+        <span class="footer-link">Site Web</span>
+        <span class="footer-link">Référencement</span>
+        <span class="footer-link">Publicités Méta Ads</span>
+        <span class="footer-link">Réseaux Sociaux</span>
+        <span class="footer-link">Shooting Chantiers</span>
+        <span class="footer-link">Identité visuelle</span>
+        <span class="footer-link">Branding</span>
+      </div>
+      <div>
+        <div class="footer-col-title">Zones d'intervention</div>
+        <span class="footer-link">Chambéry &amp; Savoie</span>
+        <span class="footer-link">Grenoble &amp; Isère</span>
+        <span class="footer-link">Lyon &amp; Rhône-Alpes</span>
+        <span class="footer-link">Lille &amp; Hauts-de-France</span>
+        <span class="footer-link">Nantes &amp; Pays de la Loire</span>
+        <span class="footer-link">Orléans &amp; Centre-Val de Loire</span>
+        <span class="footer-link">Marseille &amp; PACA</span>
+        <span class="footer-link">Bordeaux &amp; Nouvelle-Aquitaine</span>
+        <span class="footer-link">Bruxelles &amp; Belgique</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Agence de l'Ombre · Tous droits réservés · Ce site ne fait pas partie du site web Facebook ou de Facebook, Inc. En outre, ce site n'est pas endossé par Facebook en aucune façon. Facebook est une marque déposée de Facebook, Inc.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
